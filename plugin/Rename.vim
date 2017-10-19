@@ -11,7 +11,7 @@
 command! -nargs=* -complete=file -bang Rename call Rename(<q-args>, '<bang>')
 
 function! Rename(name, bang)
-	let l:name    = a:name
+	let l:name    = expand('%:h') . '/' . a:name
 	let l:oldfile = expand('%:p')
 
 	if bufexists(fnamemodify(l:name, ':p'))
